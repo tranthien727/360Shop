@@ -326,7 +326,7 @@
         <img class="logo" src="HinhanhSP/thegioididong.png" alt="">
         <!-- <a href="<?php echo URL; ?>"><img class="logo" src="HinhanhSP/thegioididong.png" alt=""></a> -->
         <div class="d-flex justify-content-center">
-            <a  href="cart-view.php">Giỏ hàng <i class="fa fa-cart-plus"> [<?php echo count($cart); ?>]</i></a>
+            <a  href="cart-view.php">Giỏ hàng <i class="fa fa-cart-plus"> </i></a>
         </div>
         <div class="d-flex">
         <?php 
