@@ -1,5 +1,6 @@
 <?php include ('config/constraint.php'); ?>
 <?php session_start(); ?>
+<?php $cart=(isset($_SESSION['cart']))? $_SESSION['cart']:[]; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -317,6 +318,17 @@
             color:#f2f2f2;
         }
         /* dangky login*/
+        /* search */
+        .search-container{
+            float:right;
+            width: 300px;
+        }
+        .search-icon button{
+            float:right;
+            width: 50px;
+            height: 50px;
+        }
+        /* close search */
     </style>
 </head>
 <body>
@@ -326,7 +338,7 @@
         <img class="logo" src="HinhanhSP/thegioididong.png" alt="">
         <!-- <a href="<?php echo URL; ?>"><img class="logo" src="HinhanhSP/thegioididong.png" alt=""></a> -->
         <div class="d-flex justify-content-center">
-            <a  href="cart-view.php">Giỏ hàng <i class="fa fa-cart-plus"> </i></a>
+            <a  href="cart-view.php">Giỏ hàng <i class="fa fa-cart-plus"> [<?php echo count($cart); ?>]</i></a>
         </div>
         <div class="d-flex">
         <?php 
@@ -363,7 +375,13 @@
             </li>
             <li class="nav-item">
                 <?php 
-                    echo "<a class='nav-link' href=''><i class='fa fa-shopping-cart'></i> Đơn hàng</a>";
+                    if (isset($_SESSION['MaNguoidung']) && $_SESSION['MaNguoidung']){
+                        $MaNguoidung=$_SESSION['MaNguoidung'];
+                        echo "<a class='nav-link' href='order.php?MaNguoidung=$MaNguoidung'><i class='fa fa-shopping-cart'></i> Đơn hàng</a>";
+                    }
+                    else{
+                        echo "<a class='nav-link' href=''><i class='fa fa-shopping-cart'></i> Đơn hàng</a>";
+                    }
                 ?>
             </li>
             <li class="nav-item">
